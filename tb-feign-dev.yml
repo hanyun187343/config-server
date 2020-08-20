@@ -1,4 +1,14 @@
 spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: false
   redis:
     database: 0
     host: localhost
@@ -10,16 +20,6 @@ spring:
         max-wait: -1ms
         max-idle: 10
         min-idle: 0
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
-  cloud:
-    bus:
-      enabled: true
-      trace:
-        enabled: true
 
 management:
   endpoints:
