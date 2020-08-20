@@ -1,18 +1,26 @@
 spring:
-
-
-
-  redis:
-    database: 0
+ redis:
+   database: 0
+   host: localhost
+   port: 6379
+   timeout: 6000ms
+   jedis:
+     pool:
+       max-active: 200
+       max-wait: -1ms
+       max-idle: 10
+       min-idle: 0
+ rabbitmq:
     host: localhost
-    port: 6379
-    timeout: 6000ms
-    jedis:
-      pool:
-        max-active: 200
-        max-wait: -1ms
-        max-idle: 10
-        min-idle: 0
+    port: 5762
+    username: guest
+    password: guest
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+
 #开启feign支持hystrix  (注意，一定要开启，旧版本默认支持，新版本默认关闭)
 # #修改调用超时时间（默认是1秒就算超时）
 feign:
@@ -23,3 +31,9 @@ feign:
       default:
         connectTimeout: 2000
         readTimeout: 2000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
