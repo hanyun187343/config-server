@@ -21,13 +21,7 @@ spring:
         max-idle: 10
         min-idle: 0
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-#开启feign支持hystrix  (注意，一定要开启，旧版本默认支持，新版本默认关闭)
-# #修改调用超时时间（默认是1秒就算超时）
+
 feign:
   hystrix:
     enabled: true
@@ -37,3 +31,8 @@ feign:
         connectTimeout: 2000
         readTimeout: 2000
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
